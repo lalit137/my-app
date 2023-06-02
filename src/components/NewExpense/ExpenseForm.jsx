@@ -41,20 +41,6 @@ const ExpenseForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        //for netlify form
-        const myForm = event.target;
-        const formData = new FormData(myForm);
-
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
-        })
-            .then(() => navigate("/thank-you/"))
-            .catch((error) => alert(error));
-
-        //...............
-
         const expenseData = {
             title: enteredTitle,
             amount: +enteredAmount,
@@ -64,12 +50,10 @@ const ExpenseForm = (props) => {
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
-    };
+    }
 
     return (
-        <form ata-netlify="true"
-            name="pizzaOrder"
-            method="post" onSubmit={submitHandler} >
+        <form onSubmit={submitHandler}>
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Title</label>
@@ -77,7 +61,6 @@ const ExpenseForm = (props) => {
                         type='text'
                         value={enteredTitle}
                         onChange={titleChangeHandler}
-
                     />
                 </div>
                 <div className='new-expense__control'>
