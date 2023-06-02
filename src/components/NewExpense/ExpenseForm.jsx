@@ -53,7 +53,7 @@ const ExpenseForm = (props) => {
     }
 
     return (
-        <form onSubmit={submitHandler} name="new-Expense" netlify>
+        <form onSubmit={submitHandler} >
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Title</label>
@@ -61,7 +61,6 @@ const ExpenseForm = (props) => {
                         type='text'
                         value={enteredTitle}
                         onChange={titleChangeHandler}
-                        name="title"
                     />
                 </div>
                 <div className='new-expense__control'>
@@ -72,7 +71,6 @@ const ExpenseForm = (props) => {
                         step='0.01'
                         value={enteredAmount}
                         onChange={amountChangeHandler}
-                        name="amount"
                     />
                 </div>
                 <div className='new-expense__control'>
@@ -83,7 +81,6 @@ const ExpenseForm = (props) => {
                         max='2023-12-31'
                         value={enteredDate}
                         onChange={dateChangeHandler}
-                        name="date"
                     />
                 </div>
             </div>
